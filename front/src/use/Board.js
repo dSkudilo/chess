@@ -19,4 +19,10 @@ export default class Board {
       this.cells.push(row)
     }
   }
+
+  getCell (x, y) {
+    return this.cells[y][x]
+  }
+
+  addFigures () {}
 }

@@ -1,9 +1,18 @@
 <template>
-  <div class="cell">cell</div>
+  <div
+    class="cell"
+    :class="`cell_${cell.color}`"
+  />
 </template>
 <script>
 export default {
-  name: 'TheBoard'
+  name: 'TheBoard',
+  props: {
+    cell: {
+      type: Object,
+      require: true
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -1,13 +1,34 @@
 <template>
   <div class="chess">
-    <TheBoard/>
+    <TheBoard
+      :board="board"
+    />
   </div>
 </template>
 <script>
-import TheBoard from '@/components/TheCell'
+import TheBoard from '@/components/TheBoard'
+import Board from '@/use/Board'
 export default {
   name: 'ChessPage',
-  components: { TheBoard }
+  components: { TheBoard },
+  data () {
+    return {
+      board: null
+    }
+  },
+  mounted () {
+    this.restart()
+  },
+  methods: {
+    restart () {
+      const newBoard = new Board()
+      newBoard.initCells()
+      this.setBoard(newBoard)
+    },
+    setBoard (val) {
+      this.board = val
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
